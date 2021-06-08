@@ -3,15 +3,10 @@
 $submit = filter_input (INPUT_POST, 'submit');
 
 $model = filter_input (INPUT_POST,"model");
-
+$cars = $_POST['cars'];
 
 ?>
-<?php
-if(isset($submit)) {
-  echo "Formulář byl odeslán <br>";
 
-} else  ?>
-<form action= "index.php" method="post">
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +17,14 @@ if(isset($submit)) {
     <title>Autosalon</title>
 </head>
 <body>
-
+<?php
+if(isset($submit)) {
+  echo "Formulář byl odeslán <br>";
+  foreach ($cars as $car) {
+    echo $car. "<br>";
+  }
+  } else  ?>
+<form action= "index.php" method="post">
 <h1>Autosalon</h1>
 
 <label for="cars">Vyber model:</label>
@@ -34,19 +36,19 @@ if(isset($submit)) {
   <option value="superb">Superb</option>
   <option value="scala">Scala</option>
 <br>  
-<input type="radio" id="benzin" name="car" value="benzin">
+<input type="radio" id="benzin" name="cars[]" value="benzin">
 <label for="benzin">Benzín </label>
 <br>
-<input type="radio" id="diesel" name="car" value="diesel">
+<input type="radio" id="diesel" name="cars[]" value="diesel">
 <label for="diesel">Diesel</label>
 <br>
-<input type="radio" id="LPG" name="car" value="LPG">
+<input type="radio" id="LPG" name="cars[]" value="LPG">
 <label for="LPG">LPG</label>
 <br>
-<input type="radio" id="elektro" name="car" value="elektro">
+<input type="radio" id="elektro" name="cars[]" value="elektro">
 <label for="elektro">Elektro</label>
 <br>
-<input type="radio" id="hybrid" name="car" value="hybrid">
+<input type="radio" id="hybrid" name="cars[]" value="hybrid">
 <label for="hybrid">Hybrid</label>
 <br>
 <input type="checkbox" id="car1" name="cars[]" value="sedacky">
@@ -71,7 +73,7 @@ if(isset($submit)) {
 <label for="motor"> Motor</label>
 <br>
 <label for="barvy">Barva:</label>
-<select name="barvy" id="barvy">
+<select name="cars[]" id="barvy">
   <option value="fialova">Fialová</option>
   <option value="zelena">Zelená</option>
   <option value="cervena">Červená</option>
