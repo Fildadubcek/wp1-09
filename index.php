@@ -28,7 +28,7 @@ if(isset($submit)) {
 <h1>Autosalon</h1>
 
 <label for="cars">Vyber model:</label>
-<select name="cars" id="cars">
+<select name="cars[]" id="cars">
   <option value="felicie">Felicie</option>
   <option value="octavia">Octavia</option>
   <option value="fabie">Fabie</option>
